@@ -1,0 +1,43 @@
+/* styles.css */
+
+/* 기본 스타일 */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+button {
+  font-size: 16px;
+  width: 50%;
+}
+#aoeh {
+  margin-top: 10px;
+  height: 50px;
+}
+#aotn {
+  margin-top: 10px;
+  height: 50px;
+}
+#money {
+  font-size: 20px;
+}
+/* 모바일 전용 스타일 */
+@media only screen and (max-width: 768px) {
+  body {
+    background-color: #ffffff; /* 모바일 배경색 */
+    font-size: 15px; /* 모바일 폰트 크기 */
+    align-items: center;
+    justify-content: center; /* 수직 가운데 정렬 */
+  }
+
+  #money {
+    font-size: 20px; /* 모바일에서 돈 표시 크기 */
+  }
+
+  button {
+    width: 95%; /* 버튼을 전체 너비로 설정 */
+    padding: 10px; /* 버튼 패딩 */
+    font-size: 16px; /* 버튼 폰트 크기 */
+  }
+}

@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>주식 게임</title>
+    <link rel="stylesheet" href="css.css" />
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var money = 1000;
+        var money1 = 500;
+        var money2 = 500;
+        var money3 = 500;
+        var money4 = 500;
+        let wntlrrotn1 = 0;
+        let wntlrrotn2 = 0;
+        let wntlrrotn3 = 0;
+        let wntlrrotn4 = 0;
+        var mp;
+        var mpvalue;
+        var value;
+        let select;
+        const moneys = document.querySelector("#money");
+        const clock = document.querySelector("#clock");
+        var clocks = 15;
+        const wntlr1ehs = document.querySelector("#wntlr1ehs");
+        const wntlr2ehs = document.querySelector("#wntlr2ehs");
+        const wntlr3ehs = document.querySelector("#wntlr3ehs");
+        const wntlr4ehs = document.querySelector("#wntlr4ehs");
+
+        function wntlrqusehd1() {
+          mp = Math.floor(Math.random() * 2);
+          if (mp === 0) {
+            mpvalue = "-";
+          } else {
+            mpvalue = "+";
+          }
+          if (mpvalue === "-") {
+            value = Math.floor(Math.random() * 99);
+            money1 %= value;
+            if (money1 === 0) {
+              money1 = 1;
+            }
+          } else {
+            value = Math.floor(Math.random() * 1000);
+            value %= 100;
+            money1 *= value;
+            if (money1 === 0) {
+              money1 = 1;
+            }
+          }
+        }
+        function wntlrqusehd2() {
+          mp = Math.floor(Math.random() * 2);
+          if (mp === 0) {
+            mpvalue = "-";
+          } else {
+            mpvalue = "+";
+          }
+          if (mpvalue === "-") {
+            value = Math.floor(Math.random() * 99);
+            money2 %= value;
+            if (money2 === 0) {
+              money2 = 1;
+            }
+          } else {
+            value = Math.floor(Math.random() * 1000);
+            value %= 100;
+            money2 *= value;
+            if (money2 === 0) {
+              money2 = 1;
+            }
+          }
+        }
+        function wntlrqusehd3() {
+          mp = Math.floor(Math.random() * 2);
+          if (mp === 0) {
+            mpvalue = "-";
+          } else {
+            mpvalue = "+";
+          }
+          if (mpvalue === "-") {
+            value = Math.floor(Math.random() * 99);
+            money3 %= value;
+            if (money3 === 0) {
+              money3 = 1;
+            }
+          } else {
+            value = Math.floor(Math.random() * 1000);
+            value %= 100;
+            money3 *= value;
+            if (money3 === 0) {
+              money3 = 1;
+            }
+          }
+        }
+        function wntlrqusehd4() {
+          mp = Math.floor(Math.random() * 2);
+          if (mp === 0) {
+            mpvalue = "-";
+          } else {
+            mpvalue = "+";
+          }
+          if (mpvalue === "-") {
+            value = Math.floor(Math.random() * 99);
+            money4 %= value;
+            if (money4 === 0) {
+              money4 = 1;
+            }
+          } else {
+            value = Math.floor(Math.random() * 1000);
+            value %= 100;
+            money4 *= value;
+            if (money4 === 0) {
+              money4 = 1;
+            }
+          }
+        }
+
+        setInterval(() => {
+          if (clocks === 0) {
+            clocks = 15;
+            wntlrqusehd1();
+            wntlrqusehd2();
+            wntlrqusehd3();
+            wntlrqusehd4();
+            wntlr1ehs.innerHTML = money1;
+            wntlr2ehs.innerHTML = money2;
+            wntlr3ehs.innerHTML = money3;
+            wntlr4ehs.innerHTML = money4;
+            clock.innerHTML = clocks;
+          } else {
+            clocks--;
+            clock.innerHTML = clocks;
+          }
+        }, 1000);
+
+        function aotn() {
+          select = document.getElementById("wntlrtjsxor").value;
+          if (select === "tjsxor1wntlr") {
+            if (money >= money1 && money1 > 0) {
+              money -= money1;
+              wntlrrotn1++;
+              console.log("주식거래 성공! 1주식 1개 추가");
+              document.querySelector("#qhdbrotn1").innerHTML = wntlrrotn1;
+              moneys.innerHTML = money;
+            } else {
+              console.log("자금이 부족하거나 주식 가격이 0입니다.");
+            }
+          } else if (select === "tjsxor2wntlr") {
+            if (money >= money2) {
+              money -= money2;
+              wntlrrotn2++;
+              console.log("주식거래 성공! 2주식 1개 추가");
+              document.querySelector("#qhdbrotn2").innerHTML = wntlrrotn2;
+              moneys.innerHTML = money;
+            } else {
+              console.log("자금이 부족합니다.");
+            }
+          } else if (select === "tjsxor3wntlr") {
+            if (money >= money3) {
+              money -= money3;
+              wntlrrotn3++;
+              console.log("주식거래 성공! 3주식 1개 추가");
+              document.querySelector("#qhdbrotn3").innerHTML = wntlrrotn3;
+              moneys.innerHTML = money;
+            } else {
+              console.log("자금이 부족합니다.");
+            }
+          } else if (select === "tjsxor4wntlr") {
+            if (money >= money4) {
+              money -= money4;
+              wntlrrotn4++;
+              console.log("주식거래 성공! 4주식 1개 추가");
+              document.querySelector("#qhdbrotn4").innerHTML = wntlrrotn4;
+              moneys.innerHTML = money;
+            } else {
+              console.log("자금이 부족합니다.");
+            }
+          }
+        }
+
+        function aoeh() {
+          select = document.getElementById("wntlrtjsxor").value;
+          if (select === "tjsxor1wntlr") {
+            if (wntlrrotn1 > 0) {
+              money += money1;
+              wntlrrotn1--;
+              console.log("주식판매 성공! 1주식 1개 사라짐");
+              document.querySelector("#qhdbrotn1").innerHTML = wntlrrotn1;
+              moneys.innerHTML = money;
+            } else {
+              console.log("주식이 부족합니다.");
+            }
+          } else if (select === "tjsxor2wntlr") {
+            if (wntlrrotn2 > 0) {
+              money += money2;
+              wntlrrotn2--;
+              console.log("주식판매 성공! 2주식 1개 사라짐");
+              document.querySelector("#qhdbrotn2").innerHTML = wntlrrotn2;
+              moneys.innerHTML = money;
+            } else {
+              console.log("주식이 부족합니다.");
+            }
+          } else if (select === "tjsxor3wntlr") {
+            if (wntlrrotn3 > 0) {
+              money += money3;
+              wntlrrotn3--;
+              console.log("주식판매 성공! 3주식 1개 사라짐");
+              document.querySelector("#qhdbrotn3").innerHTML = wntlrrotn3;
+              moneys.innerHTML = money;
+            } else {
+              console.log("주식이 부족합니다.");
+            }
+          } else if (select === "tjsxor4wntlr") {
+            if (wntlrrotn4 > 0) {
+              money += money4;
+              wntlrrotn4--;
+              console.log("주식판매 성공! 4주식 1개 사라짐");
+              document.querySelector("#qhdbrotn4").innerHTML = wntlrrotn4;
+              moneys.innerHTML = money;
+            } else {
+              console.log("주식이 부족합니다.");
+            }
+          }
+        }
+
+        document.getElementById("aotn").onclick = aotn;
+        document.getElementById("aoeh").onclick = aoeh;
+      });
+    </script>
+  </head>
+  <body>
+    <span>현재 보유 돈 : </span><span id="money">1000</span><span>원</span>
+    <p id="1wntlr">주식1</p>
+    <span id="qhdbrotn1">0</span><span>개</span> <span id="wntlr1ehs">500</span
+    ><span>원</span>
+    <p id="2wntlr">주식2</p>
+    <span id="qhdbrotn2">0</span><span>개</span> <span id="wntlr2ehs">500</span
+    ><span>원</span>
+    <p id="3wntlr">주식3</p>
+    <span id="qhdbrotn3">0</span><span>개</span> <span id="wntlr3ehs">500</span
+    ><span>원</span>
+    <p id="4wntlr">주식4</p>
+    <span id="qhdbrotn4">0</span><span>개</span> <span id="wntlr4ehs">500</span
+    ><span>원</span><br />
+
+    <select id="wntlrtjsxor">
+      <option value="tjsxor1wntlr">주식1</option>
+      <option value="tjsxor2wntlr">주식2</option>
+      <option value="tjsxor3wntlr">주식3</option>
+      <option value="tjsxor4wntlr">주식4</option></select
+    ><br />
+    <button id="aotn">매수</button>
+    <button id="aoeh">매도</button><br />
+    <span>주식 변동까지 남은 시간 : </span><span id="clock">15</span
+    ><span>초</span>
+  </body>
+</html>
